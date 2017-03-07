@@ -1,0 +1,147 @@
+@import "./variables";
+@import "./mixins";
+@import "./layout";
+
+html * {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+*, *:after, *:before {
+	box-sizing: border-box;
+}
+
+body {
+	font: {
+		size: 100%;
+		family: $primary-font; // variables inside partials > _variables.scss
+	}
+	color: $color-1;
+	background-color: $color-4;
+  margin: 0;
+}
+
+body, html, #root {
+	height: 100%;
+}
+
+a {
+	color: $color-1;
+	text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+.rfpn {
+  height: 100%;
+  .rfpn__section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+  	position: relative;
+  	padding: 2em 0;
+
+    &:nth-of-type(odd) {
+      background-color: $color-1;
+
+      p {
+  			color: lighten($color-1, 30%);
+  		}
+    } // odd
+
+
+    &:nth-of-type(even) {
+  		background-color: $color-2;
+
+  		p {
+  			color: lighten($color-2, 30%);
+  		}
+  	} // even
+
+    h2 {
+  		color: $color-4;
+  		font-weight: 300;
+  		text-transform: uppercase;
+  		@include font-size(20px);
+  	}
+
+  	p {
+  		line-height: 1.6;
+  	}
+
+    @include MQ(M) {
+  		h2 {
+  			@include font-size(30px);
+  		}
+
+  		p {
+  			@include font-size(20px);
+  			line-height: 2;
+  		}
+  	} // MQ
+
+  } // .rfpn__section
+
+
+  .rfpn__nav {
+    position: fixed;
+    top: 50%;
+    right: 40px;
+    z-index: 1;
+    transform: translateY(-50%);
+
+    li {
+      list-style-type: none;
+      text-align: right;
+    }
+
+    .rfpn__nav-link {
+      cursor: pointer;
+      display: inline-block;
+
+      span {
+        float: right;
+        display: inline-block;
+        transform: scale(0.6);
+      }
+
+      &:hover span {
+        transform: scale(1);
+      }
+
+      &:hover .rfpn__nav-label {
+  			opacity: 1;
+  		}
+
+      &.rfpn__nav-link--active .rfpn__nav-dot {
+        background-color: $color-4;
+      }
+    } // a
+
+    .rfpn__nav-dot {
+      position: relative;
+  		/* we set a top value in order to align the dot with the label. If you change label's font, you may need to change this top value*/
+  		top: 8px;
+  		height: 12px;
+  		width: 12px;
+  		border-radius: 50%;
+  		background-color: $color-3;
+  		transition: transform 0.2s, background-color 0.5s;
+      transform-origin: 50% 50%;
+    }
+
+    .rfpn__nav-label {
+  		position: relative;
+  		margin-right: 10px;
+  		padding: .4em .5em;
+  		color: $color-4;
+  		@include font-size(14px);
+  		transition: transform 0.2s, opacity 0.2s;
+  		opacity: 0;
+  		transform-origin: 100% 50%;
+  	}
+  }
+} // .rfpn
