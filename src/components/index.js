@@ -3,5 +3,5 @@ import ScrollSection from './ScrollSection';
 
 export {
   ScrollContainer,
-  ScrollSection
+  ScrollSection,
 };

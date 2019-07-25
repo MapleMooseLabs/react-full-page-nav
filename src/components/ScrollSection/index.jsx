@@ -16,5 +16,5 @@ export default class ScrollSection extends React.Component {
 
 ScrollSection.propTypes = {
   id: PropTypes.string,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };

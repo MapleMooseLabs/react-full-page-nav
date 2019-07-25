@@ -7,7 +7,7 @@ html * {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-*, *:after, *:before {
+*, *::after, *::before {
 	box-sizing: border-box;
 }
 
@@ -16,9 +16,10 @@ body {
 		size: 100%;
 		family: $primary-font; // variables inside partials > _variables.scss
 	}
-	color: $color-1;
-	background-color: $color-4;
+
   margin: 0;
+	background-color: $color-4;
+	color: $color-1;
 }
 
 body, html, #root {
@@ -37,11 +38,11 @@ img {
 .rfpn {
   height: 100%;
   .rfpn__section {
-    display: flex;
+		display: flex;
+  	position: relative;
     align-items: center;
     justify-content: center;
     min-height: 100%;
-  	position: relative;
   	padding: 2em 0;
 
     &:nth-of-type(odd) {
@@ -90,8 +91,8 @@ img {
     position: fixed;
     top: 50%;
     right: 40px;
-    z-index: 1;
     transform: translateY(-50%);
+    z-index: 1;
 
     li {
       list-style-type: none;
@@ -99,12 +100,12 @@ img {
     }
 
     .rfpn__nav-link {
+			display: inline-block;
       cursor: pointer;
-      display: inline-block;
 
       span {
-        float: right;
         display: inline-block;
+        float: right;
         transform: scale(0.6);
       }
 
@@ -123,25 +124,24 @@ img {
 
     .rfpn__nav-dot {
       position: relative;
-  		/* we set a top value in order to align the dot with the label. If you change label's font, you may need to change this top value*/
   		top: 8px;
-  		height: 12px;
   		width: 12px;
+  		height: 12px;
+      transform-origin: 50% 50%;
+			transition: transform 0.2s, background-color 0.5s;
   		border-radius: 50%;
   		background-color: $color-3;
-  		transition: transform 0.2s, background-color 0.5s;
-      transform-origin: 50% 50%;
     }
 
     .rfpn__nav-label {
   		position: relative;
   		margin-right: 10px;
   		padding: .4em .5em;
+  		transform-origin: 100% 50%;
+  		transition: transform 0.2s, opacity 0.2s;
   		color: $color-4;
   		@include font-size(14px);
-  		transition: transform 0.2s, opacity 0.2s;
   		opacity: 0;
-  		transform-origin: 100% 50%;
   	}
   }
 } // .rfpn

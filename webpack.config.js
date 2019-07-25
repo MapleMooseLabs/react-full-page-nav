@@ -1,7 +1,6 @@
 'use strict';
 
 const path = require('path');
-const glob = require('glob');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -75,7 +74,7 @@ module.exports = [{
     }],
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     createBannerPlugin(),
@@ -102,7 +101,7 @@ module.exports = [{
     }],
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     createBannerPlugin(),
@@ -125,7 +124,7 @@ module.exports = [{
     rules: [
       {
         test: /\.svg$/,
-        loader: 'file-loader'
+        loader: 'file-loader',
       },
       {
         test: /\.scss$/,
@@ -134,7 +133,7 @@ module.exports = [{
             use: CSS_LOADER_CONFIG,
           }
         ),
-      }
+      },
     ],
   },
   plugins: [
